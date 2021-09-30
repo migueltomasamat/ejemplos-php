@@ -8,8 +8,8 @@
 $repeticiones=4;
 $valor=6;
 
-for ($i=0;$i<$repeticiones;$i++){
-    if($i=$repeticiones-1){
+for ($i=1;$i<=$repeticiones;$i++){
+    if($i=$repeticiones){
         echo ($i * $valor) ." ";
     }
     echo ($i * $valor).".";
