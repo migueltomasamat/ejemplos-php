@@ -66,3 +66,29 @@ print_r($numeros);
 
 echo "<br>";
 print_r(array_unique($numeros));
+
+
+
+$puntuaciones['Miguel'] = array (80,113,125);
+echo "<br>";
+print_r($puntuaciones);
+$puntuaciones ['Juan'] = array(115,90,178);
+echo "<br>";
+print_r ( $puntuaciones);
+
+
+function mediaArray($array){
+    $acumulador=0;
+
+    foreach ($array as $numero){
+        $acumulador = $acumulador + $numero;
+    }
+    return $acumulador/count($array);
+}
+echo "<br>";
+echo mediaArray ($puntuaciones['Miguel']);
+
+foreach $puntuacion as $jugadores{
+    
+}
+
