@@ -9,6 +9,12 @@ define ("BASEDATOS","bd_ejemplo");
 
 function conectarBD(){
     $conexion = mysqli_connect(SERVIDOR,USUARIO,PASSWORD,BASEDATOS);
+
+    if (!$conexion){
+        echo "Se ha producido un error en la conexión";
+        return false;
+    }
+
     return $conexion;
 }
 
@@ -20,4 +26,11 @@ function aumentarEdadCincuentones ($aumentoanyos){
     if($resultado){
         echo "La edad de los entrenadores se ha actualizado";
     }
+}
+
+function generarFormularioJugador (){
+
+    
+
+
 }
