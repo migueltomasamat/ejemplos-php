@@ -7,7 +7,7 @@ define ("USUARIO","iawe_miguel");
 define ("PASSWORD","leugim");
 define ("BASEDATOS","bd_ejemplo");
 
-function conectarBD(){
+function conectarBD(): mysqli | false {
     $conexion = mysqli_connect(SERVIDOR,USUARIO,PASSWORD,BASEDATOS);
 
     if (!$conexion){
@@ -28,9 +28,26 @@ function aumentarEdadCincuentones ($aumentoanyos){
     }
 }
 
-function generarFormularioJugador (){
+function generarFormularioRegistro($action){
 
+    echo "<form name='registro' action='".$action."' method='post'> 
+            <label for='usuario'>Introduce tu nombre de usuario</label>
+            <input type='text' name='usuario' id='usuario'>
+            <label for='pass'>Introduce tu contraseña</label>
+            <input type='password' name='pass' id='pass'>
+
+            <button type='submit'>Pulsa aquí</button>
+        </form>";
     
 
 
+}
+
+function generarEncabezadoHTML($titulo){
+    echo "<html charset= utf8>
+            <head>
+                <title>$titulo</title>
+            </head>
+          <body>
+          ";
 }
