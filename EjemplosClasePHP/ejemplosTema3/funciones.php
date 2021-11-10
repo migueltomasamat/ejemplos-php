@@ -51,3 +51,12 @@ function generarEncabezadoHTML($titulo){
           <body>
           ";
 }
+
+function generarCierreHTML(){
+    echo "
+        <div id='pie'>
+            <br><center><a href='./indicechungo.php'>Página de inicio</a></center>
+        </div>
+        </body>
+        </html>";
+}

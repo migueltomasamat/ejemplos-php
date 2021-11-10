@@ -1,5 +1,7 @@
 <?php
+    session_start();
     include_once ("./funciones.php");
+    generarEncabezadoHTML("Comprobación Usuario");
     $usuario = $_POST["usuario"];
     $pass = $_POST["pass"];
 
@@ -21,8 +23,12 @@
     mysqli_stmt_fetch($sentencia);
 
     //Se comprueba que la contraseña sea correcta
-    if (password_verify($pass,$pass_cifrado))
+    if (password_verify($pass,$pass_cifrado)){
         echo "La contraseña se ha validado";
+        $_SESSION['nombreUsuario'] = $usuario;
+    }
+        
+
     
 
     //Otro modo de acceder a los resultados de la consulta    
@@ -36,3 +42,10 @@
         echo "La contraseña es correcta";
 
     */
+
+
+    if (comprobarUsuario($_POST['usuario'],$_POST['pass'])){
+        $_SESSION['nombreUsuario']=$_POST['usuario'];
+    }
+
+    generarCierreHTML();
