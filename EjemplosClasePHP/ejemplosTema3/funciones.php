@@ -86,3 +86,21 @@ function comprobarUsuario($usuario,$pass){
         return false;
     }
 }
+
+function usuarioExiste ($nombreUsuario){
+    $con = conectarBD();
+    $sql = "SELECT * FROM usuario WHERE nombre = ?";
+
+    //Se prepara la sentencia 
+    $sentencia = mysqli_prepare($con,$sql);
+
+    //Se asocian los parámetros a la sentencia y se ejecuta la misma
+    mysqli_stmt_bind_param($sentencia,"s",$usuario);
+    if (mysqli_stmt_execute($sentencia)){
+        return true;
+    }else
+        return false;
+
+
+    
+}

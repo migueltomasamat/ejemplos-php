@@ -46,6 +46,7 @@
 
     if (comprobarUsuario($_POST['usuario'],$_POST['pass'])){
         $_SESSION['nombreUsuario']=$_POST['usuario'];
+        
     }
 
     generarCierreHTML();
