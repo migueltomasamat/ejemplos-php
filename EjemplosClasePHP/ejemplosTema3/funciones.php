@@ -100,7 +100,17 @@ function usuarioExiste ($nombreUsuario){
         return true;
     }else
         return false;
+}
 
 
-    
+function formularioCargaArchivos($paginaAction){
+
+    echo "<form method='post' name='formularioSubida' enctype='multipart/form-data' action='".$paginaAction."'>
+            <label for='usuario'>Introduce tu nombre de usuario</label>
+            <input type='text' name=usuario id='usuario'>
+            <label for= 'upload' >Carga el fichero a subir</label>
+            <input type='file' name='upload' id='upload'>
+
+            <button type='submit'>Enviar Datos</button>
+        </form>";
 }
