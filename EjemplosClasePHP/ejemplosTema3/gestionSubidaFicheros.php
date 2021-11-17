@@ -33,7 +33,10 @@
             mkdir($ruta_anyo_actual,0755,true);
     }
 
+    $nombre = str_replace(' ','_',$nombre);
     move_uploaded_file($ruta_fichero,$ruta_anyo_actual.$nombre);
+
+    //<a href="./descargarDocumento.php?file=".$ruta_anyo_actual.$nombre"&type=".mime_content_type($ruta_anyo_actual.$nombre);
         
 
     

@@ -114,3 +114,29 @@ function formularioCargaArchivos($paginaAction){
             <button type='submit'>Enviar Datos</button>
         </form>";
 }
+
+function mostrarFichero($arrayFicheros,$ruta){
+
+    echo "<table border=1px solid>
+
+        <tr>
+            <th>Nombre Fichero</th>
+            <th>Enlace Descarga </th>
+        </tr>";
+        
+        
+        foreach ($arrayFicheros as $fichero){
+            if(!($fichero == '.' || $fichero=='..')){
+            echo "<tr>
+                <td>$fichero</td>
+                <td>
+                    <a href='descargarDocumento.php?file=".$ruta."/".$fichero."'>Descargar</a>"
+                ."</td>
+            </tr>";
+            }
+        }
+
+    echo "</table>";
+
+
+}
