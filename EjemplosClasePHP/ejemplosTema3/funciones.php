@@ -18,6 +18,10 @@ function conectarBD(): mysqli | false {
     return $conexion;
 }
 
+function desconectarBD ($conexion){
+    mysqli_close($conexion);
+}
+
 
 function aumentarEdadCincuentones ($aumentoanyos){
     $conexion = conectarBD();
@@ -138,5 +142,41 @@ function mostrarFichero($arrayFicheros,$ruta){
 
     echo "</table>";
 
+
+}
+
+
+//Funciones de acceso a datos Ejemplo
+
+function saberIdEquipo ($nombreEquipo){
+
+    $conexion = conectarBD();
+    $sentencia = mysqli_prepare($conexion,"SELECT codigo_eq FROM equipo WHERE nombre_eq=?");
+
+    mysqli_stmt_bind_param($sentencia,"s",$nombreEquipo);
+
+    mysqli_stmt_bind_result($sentencia,$resultadosEquipo);
+
+    mysqli_stmt_execute($sentencia);
+
+    mysqli_stmt_fetch($sentencia);
+
+    desconectarBD($conexion);
+    
+    return $resultadosEquipo;
+}
+
+function almacenarMascota($nombreMascota,$imagen,$idEquipo){
+
+    $conexion = conectarBD();
+
+    $sentencia = mysqli_prepare($conexion, "INSERT INTO mascotas(nombre,foto,id_equipo)
+    VALUES (?,?,?)");
+
+    mysqli_stmt_bind_param($sentencia,"ssi",$nombreMascota,$imagen,$idEquipo);
+
+    mysqli_stmt_execute($sentencia);
+
+    desconectarBD($conexion);
 
 }
